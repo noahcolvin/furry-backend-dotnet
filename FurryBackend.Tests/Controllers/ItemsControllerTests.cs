@@ -20,4 +20,55 @@ public class ItemsControllerTests(DatabaseFixture fixture) : IClassFixture<Datab
     var returnValue = Assert.IsType<List<StoreItem>>(okResult.Value);
     returnValue.Should().BeEquivalentTo(_fixture.StoreItems);
   }
+
+  [Fact]
+  public async Task GetStoreItems_FiltersOnAnimal()
+  {
+    var result = await _controller.GetStoreItems(animal: "Dog");
+
+    var okResult = Assert.IsType<OkObjectResult>(result.Result);
+    var returnValue = Assert.IsType<List<StoreItem>>(okResult.Value);
+    returnValue.Count.Should().Be(2);
+    returnValue.ForEach(i => i.Categories.Should().Contain("Dog"));
+  }
+
+  [Fact]
+  public async Task GetStoreItems_FiltersOnProduct()
+  {
+    var result = await _controller.GetStoreItems(product: "Food");
+
+    var okResult = Assert.IsType<OkObjectResult>(result.Result);
+    var returnValue = Assert.IsType<List<StoreItem>>(okResult.Value);
+    returnValue.Count.Should().Be(1);
+    returnValue.ForEach(i => i.Categories.Should().Contain("Food"));
+  }
+
+  [Fact]
+  public async Task GetStoreItems_Searches()
+  {
+    var result = await _controller.GetStoreItems(search: "HerE");
+
+    var okResult = Assert.IsType<OkObjectResult>(result.Result);
+    var returnValue = Assert.IsType<List<StoreItem>>(okResult.Value);
+    returnValue.Count.Should().Be(2);
+    returnValue.ForEach(i => (i.Name.Contains("Here", StringComparison.InvariantCultureIgnoreCase) || i.Description.Contains("Here", StringComparison.InvariantCultureIgnoreCase)).Should().BeTrue());
+  }
+
+  [Fact]
+  public async Task GetStoreItems_FiltersAllTheThings()
+  {
+    var result = await _controller.GetStoreItems(animal: "Dog", product: "Food", search: "HeRe");
+
+    var okResult = Assert.IsType<OkObjectResult>(result.Result);
+    var returnValue = Assert.IsType<List<StoreItem>>(okResult.Value);
+    returnValue.Count.Should().Be(1);
+    returnValue.Should().AllSatisfy(i =>
+    {
+      i.Categories.Should().Contain("Dog");
+      i.Categories.Should().Contain("Food");
+      (i.Name.Contains("Here", StringComparison.InvariantCultureIgnoreCase) || i.Description.Contains("Here", StringComparison.InvariantCultureIgnoreCase)).Should().BeTrue();
+    });
+
+    returnValue.ForEach(i => (i.Name.Contains("Here", StringComparison.InvariantCultureIgnoreCase) || i.Description.Contains("Here", StringComparison.InvariantCultureIgnoreCase)).Should().BeTrue());
+  }
 }

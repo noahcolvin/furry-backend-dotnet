@@ -1,5 +1,4 @@
 using FurryBackend.Models;
-using Microsoft.CodeAnalysis.Elfie.Diagnostics;
 
 public static class Seed
 {

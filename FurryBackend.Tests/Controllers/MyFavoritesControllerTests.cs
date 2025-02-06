@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using FurryBackend.Controllers;
 using FurryBackend.Models;
 using FluentAssertions;
