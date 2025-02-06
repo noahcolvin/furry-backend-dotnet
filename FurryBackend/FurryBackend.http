@@ -1,0 +1,6 @@
+@FurryBackend_HostAddress = http://localhost:5047
+
+GET {{FurryBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
