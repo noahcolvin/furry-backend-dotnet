@@ -26,7 +26,9 @@ dotnet test
 
 ## Questions
 #### What is the purpose of this project?
-I created this project to demonstrate a simple backend for a mobile app. I made one in Typescript and had the idea to make one in C# as well.
+I created this project to demonstrate a simple backend for a mobile app. I made one in TypeScript and had the idea to make one in C# as well.
+
+[furry-backend (TypeScript/Deno/Supabase)](https://github.com/noahcolvin/furry-backend)
 
 #### The controllers are very simple, why don't they do more?
 Yes, they only GET a few pieces of data. The sample mobile app is not complete and only displays data. If the modile app ever does more, the backend can be expanded to include the rest of the CRUD operations.
@@ -38,4 +40,4 @@ Just to keep it simple. In a real application, this data would be stored in a re
 No need for the current app.
 
 #### Code X is bad, why didn't you do Y?
-This is just a sample exercise and was completed in about a day. I'm sure there are many improvements that could be made. Fell free to make an issue or PR if you have a suggestion. This doesn't need to be perfect but I am certainly open to feedback. I may add to it in the future.
+This is just a sample exercise and was completed in about a day. I'm sure there are many improvements that could be made. Feel free to make an issue or PR if you have a suggestion. This doesn't need to be perfect but I am certainly open to feedback. I may add to it in the future.

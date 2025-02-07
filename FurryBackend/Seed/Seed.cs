@@ -2,8 +2,6 @@ using FurryBackend.Models;
 
 public static class Seed
 {
-    //private static readonly string storageUrl = "https://example.com";
-
     public static List<MyFriend> MyFriendsData(string storageUrl) => [
         new MyFriend { Name = "Alice", Image = storageUrl + "/furry-public/pets/pet1.jpg" },
         new MyFriend { Name = "Bob", Image = storageUrl + "/furry-public/pets/pet2.jpg" },
