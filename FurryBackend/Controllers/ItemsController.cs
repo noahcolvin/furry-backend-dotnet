@@ -17,12 +17,12 @@ namespace FurryBackend.Controllers
 
             if (!string.IsNullOrEmpty(animal))
             {
-                query = query.Where(item => item.Categories.Contains(animal));
+                query = query.Where(item => item.Categories.Contains(animal.ToLowerInvariant()));
             }
 
             if (!string.IsNullOrEmpty(product))
             {
-                query = query.Where(item => item.Categories.Contains(product));
+                query = query.Where(item => item.Categories.Contains(product.ToLowerInvariant()));
             }
 
             if (!string.IsNullOrEmpty(search))

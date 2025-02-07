@@ -15,6 +15,7 @@ This has three endpoints:
 [Install .NET](https://dotnet.microsoft.com/en-us/download) for your platform of choice.
 
 ```bash
+cd FurryBackend
 dotnet run --launch-profile https
 ```
 
