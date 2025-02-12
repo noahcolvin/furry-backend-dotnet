@@ -28,8 +28,6 @@ dotnet test
 #### What is the purpose of this project?
 I created this project to demonstrate a simple backend for a mobile app. I made one in TypeScript and had the idea to make one in C# as well.
 
-[furry-backend (TypeScript/Deno/Supabase)](https://github.com/noahcolvin/furry-backend)
-
 Here are some others that do more or less the same thing:
 
 - [furry-backend - TypeScript/Deno/Supabase](https://github.com/noahcolvin/furry-backend)
