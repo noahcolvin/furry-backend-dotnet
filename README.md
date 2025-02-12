@@ -30,6 +30,11 @@ I created this project to demonstrate a simple backend for a mobile app. I made 
 
 [furry-backend (TypeScript/Deno/Supabase)](https://github.com/noahcolvin/furry-backend)
 
+Here are some others that do more or less the same thing:
+
+- [furry-backend - TypeScript/Deno/Supabase](https://github.com/noahcolvin/furry-backend)
+- [furry-backend-express - TypeScript/Node/Express](https://github.com/noahcolvin/furry-backend-express)
+
 #### The controllers are very simple, why don't they do more?
 Yes, they only GET a few pieces of data. The sample mobile app is not complete and only displays data. If the modile app ever does more, the backend can be expanded to include the rest of the CRUD operations.
 
