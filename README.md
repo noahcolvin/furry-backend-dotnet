@@ -2,6 +2,7 @@
 This is a sample backend for a mobile app named `Furry`, a sample mobile app for a pet store. This is not intended to be a complete application, but rather a starting point for a full application.
 
 Created using .NET 9, Web API, and EF Core.
+
 ## Features
 This has three endpoints:
 - `/items`: Get a list of store items
@@ -11,9 +12,17 @@ This has three endpoints:
   - `?search={search}`: Search for items
 - `/my-favorite-items`: Get a list of your favorite items
 - `/my-friends`: Gets a list of your friends
+
 ## How to run
 [Install .NET](https://dotnet.microsoft.com/en-us/download) for your platform of choice.
 
+#### Edit `appsettings.Development.json` file
+`FurryBackend/appsettings.Development.json`: This holds the base URL for the file storage
+```
+"StorageUrl": "http://{projectId}.supabase.co/storage/v1/object/public"
+```
+
+#### Run the project
 ```bash
 cd FurryBackend
 dotnet run --launch-profile https
