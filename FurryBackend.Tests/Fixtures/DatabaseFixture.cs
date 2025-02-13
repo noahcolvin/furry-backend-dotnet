@@ -1,7 +1,5 @@
 using FurryBackend.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Moq;
 
 namespace FurryBackend.Tests.Fixtures;
 
@@ -27,13 +25,10 @@ public class DatabaseFixture : IDisposable
 
     public DatabaseFixture()
     {
-        var mockConfig = new Mock<IConfiguration>();
-        mockConfig.SetupGet(x => x["StorageUrl"]).Returns("https://example.com");
-
         var options = new DbContextOptionsBuilder<FurryBackendContext>()
             .UseInMemoryDatabase(Guid.NewGuid().ToString()) // Make sure to use a unique name for the database
             .Options;
-        Db = new TestFurryBackendContext(options, new Config(mockConfig.Object), MyFriends, StoreItems);
+        Db = new TestFurryBackendContext(options, null, MyFriends, StoreItems);
         Db.Database.EnsureCreated();
     }
 
@@ -48,7 +43,7 @@ public class TestFurryBackendContext : FurryBackendContext
     private readonly List<MyFriend> _myFriends;
     private readonly List<StoreItem> _storeItems;
 
-    public TestFurryBackendContext(DbContextOptions<FurryBackendContext> options, Config config, List<MyFriend> myFriends, List<StoreItem> storeItems) : base(options, config)
+    public TestFurryBackendContext(DbContextOptions<FurryBackendContext> options, Config? _, List<MyFriend> myFriends, List<StoreItem> storeItems) : base(options, _)
     {
         _myFriends = myFriends;
         _storeItems = storeItems;
