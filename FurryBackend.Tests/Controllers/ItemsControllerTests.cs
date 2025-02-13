@@ -29,7 +29,7 @@ public class ItemsControllerTests(DatabaseFixture fixture) : IClassFixture<Datab
     var okResult = Assert.IsType<OkObjectResult>(result.Result);
     var returnValue = Assert.IsType<List<StoreItem>>(okResult.Value);
     returnValue.Count.Should().Be(2);
-    returnValue.ForEach(i => i.Categories.Should().Contain("Dog"));
+    returnValue.ForEach(i => i.Categories.Should().Contain("dog"));
   }
 
   [Fact]
@@ -40,7 +40,7 @@ public class ItemsControllerTests(DatabaseFixture fixture) : IClassFixture<Datab
     var okResult = Assert.IsType<OkObjectResult>(result.Result);
     var returnValue = Assert.IsType<List<StoreItem>>(okResult.Value);
     returnValue.Count.Should().Be(1);
-    returnValue.ForEach(i => i.Categories.Should().Contain("Food"));
+    returnValue.ForEach(i => i.Categories.Should().Contain("food"));
   }
 
   [Fact]
@@ -64,8 +64,8 @@ public class ItemsControllerTests(DatabaseFixture fixture) : IClassFixture<Datab
     returnValue.Count.Should().Be(1);
     returnValue.Should().AllSatisfy(i =>
     {
-      i.Categories.Should().Contain("Dog");
-      i.Categories.Should().Contain("Food");
+      i.Categories.Should().Contain("dog");
+      i.Categories.Should().Contain("food");
       (i.Name.Contains("Here", StringComparison.InvariantCultureIgnoreCase) || i.Description.Contains("Here", StringComparison.InvariantCultureIgnoreCase)).Should().BeTrue();
     });
 

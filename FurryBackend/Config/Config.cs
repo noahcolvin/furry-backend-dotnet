@@ -1,4 +1,5 @@
-class Config(IConfiguration config)
+
+public class Config(IConfiguration config)
 {
-    public string? StorageUrl { get; } = config["StorageUrl"];
+    public string StorageUrl { get; } = config["StorageUrl"] ?? "";
 }

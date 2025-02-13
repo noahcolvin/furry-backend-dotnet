@@ -2,18 +2,20 @@ using FurryBackend.Models;
 
 public static class Seed
 {
-    public static List<MyFriend> MyFriendsData(string storageUrl) => [
-        new MyFriend { Name = "Alice", Image = storageUrl + "/furry-public/pets/pet1.jpg" },
-        new MyFriend { Name = "Bob", Image = storageUrl + "/furry-public/pets/pet2.jpg" },
-        new MyFriend { Name = "Charlie", Image = storageUrl + "/furry-public/pets/pet3.jpg" },
-        new MyFriend { Name = "David", Image = storageUrl + "/furry-public/pets/pet4.jpg" },
-        new MyFriend { Name = "Eve", Image = storageUrl + "/furry-public/pets/pet5.jpg" },
-        new MyFriend { Name = "Frank", Image = storageUrl + "/furry-public/pets/pet6.jpg" },
-        new MyFriend { Name = "Grace", Image = storageUrl + "/furry-public/pets/pet7.jpg" },
-        new MyFriend { Name = "Hank", Image = storageUrl + "/furry-public/pets/pet8.jpg" }
-        ];
+    public static List<MyFriend> MyFriendsData(string storageUrl) =>
+    [
+        new MyFriend { Id = 1, Name = "Alice", Image = storageUrl + "/furry-public/pets/pet1.jpg" },
+        new MyFriend { Id = 2, Name = "Bob", Image = storageUrl + "/furry-public/pets/pet2.jpg" },
+        new MyFriend { Id = 3, Name = "Charlie", Image = storageUrl + "/furry-public/pets/pet3.jpg" },
+        new MyFriend { Id = 4, Name = "David", Image = storageUrl + "/furry-public/pets/pet4.jpg" },
+        new MyFriend { Id = 5, Name = "Eve", Image = storageUrl + "/furry-public/pets/pet5.jpg" },
+        new MyFriend { Id = 6, Name = "Frank", Image = storageUrl + "/furry-public/pets/pet6.jpg" },
+        new MyFriend { Id = 7, Name = "Grace", Image = storageUrl + "/furry-public/pets/pet7.jpg" },
+        new MyFriend { Id = 8, Name = "Hank", Image = storageUrl + "/furry-public/pets/pet8.jpg" }
+    ];
 
-    public static List<StoreItem> StoreItems(string storageUrl) => [
+    public static List<StoreItem> StoreItems(string storageUrl) =>
+    [
         new StoreItem
         {
             Id = "1",

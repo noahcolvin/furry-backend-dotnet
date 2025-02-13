@@ -7,48 +7,7 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddTransient<Config>();
 builder.Services.AddDbContext<FurryBackendContext>(options =>
-    options.UseInMemoryDatabase("FurryBackend").UseSeeding((context, _) =>
-        {
-            var storageUrl = builder.Services.BuildServiceProvider().GetService<Config>()?.StorageUrl ?? throw new ArgumentNullException("StorageUrl");
-            var hasFriends = context.Set<MyFriend>().Any();
-            if (!hasFriends)
-            {
-                context.Set<MyFriend>().AddRange(
-                   Seed.MyFriendsData(storageUrl)
-                );
-                context.SaveChanges();
-            }
-
-            var hasItems = context.Set<StoreItem>().Any();
-            if (!hasItems)
-            {
-                context.Set<StoreItem>().AddRange(
-                    Seed.StoreItems(storageUrl)
-                );
-                context.SaveChanges();
-            }
-        })
-        .UseAsyncSeeding(async (context, _, cancellationToken) =>
-        {
-            var storageUrl = builder.Services.BuildServiceProvider().GetService<Config>()?.StorageUrl ?? throw new ArgumentNullException("StorageUrl");
-            var hasFriends = context.Set<MyFriend>().Any();
-            if (hasFriends)
-            {
-                context.Set<MyFriend>().AddRange(
-                    Seed.MyFriendsData(storageUrl)
-                );
-                await context.SaveChangesAsync(cancellationToken);
-            }
-
-            var hasItems = context.Set<StoreItem>().Any();
-            if (!hasItems)
-            {
-                context.Set<StoreItem>().AddRange(
-                    Seed.StoreItems(storageUrl)
-                );
-                await context.SaveChangesAsync(cancellationToken);
-            }
-        }));
+    options.UseInMemoryDatabase("FurryBackend"));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Configuration.AddEnvironmentVariables();
