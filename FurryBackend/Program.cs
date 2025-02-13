@@ -7,7 +7,7 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddTransient<Config>();
 builder.Services.AddDbContext<FurryBackendContext>(options =>
-    options.UseInMemoryDatabase("FurryBackend"));
+    options.UseNpgsql(@"Host=localhost;Username=furry;Password=furrypass;Database=furrydb"));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Configuration.AddEnvironmentVariables();
