@@ -14,7 +14,7 @@ This has three endpoints:
 - `/my-friends`: Gets a list of your friends
 
 ## How to run
-[Install .NET](https://dotnet.microsoft.com/en-us/download) for your platform of choice.
+[Install .NET](https://dotnet.microsoft.com/en-us/download) for your platform of choice. You'll also need [Docker Desktop](https://www.docker.com/products/docker-desktop/) to run the database.
 
 #### Edit `appsettings.Development.json` file
 `FurryBackend/appsettings.Development.json`: This holds the base URL for the file storage
@@ -22,10 +22,16 @@ This has three endpoints:
 "StorageUrl": "http://{projectId}.supabase.co/storage/v1/object/public"
 ```
 
+#### Start PostgreSQL
+```bash
+docker compose up # To keep it running in the terminal
+
+docker compose up -d # To start it in the background
+```
+
 #### Run the project
 ```bash
-cd FurryBackend
-dotnet run --launch-profile https
+dotnet run --project FurryBackend/FurryBackend.csproj --launch-profile https
 ```
 
 ## Running Tests
@@ -46,7 +52,7 @@ Here are some others that do more or less the same thing:
 Yes, they only GET a few pieces of data. The sample mobile app is not complete and only displays data. If the modile app ever does more, the backend can be expanded to include the rest of the CRUD operations.
 
 #### Why is the data hard-coded?
-Just to keep it simple. In a real application, this data would be stored in a real database. You'd also need a way to add, update, and delete data.
+Just to keep it simple. In a real application, you'd need a way to add, update, and delete data as well.
 
 #### Why is there no authentication?
 No need for the current app.
