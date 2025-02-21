@@ -18,7 +18,7 @@ public static class Seed
     [
         new StoreItem
         {
-            Id = "1",
+            Id = 1,
             Name = "Flutter Bird Food",
             Price = 59.99m,
             Description = "All natural bird food made with the finest seeds and nuts.",
@@ -29,7 +29,7 @@ public static class Seed
         },
         new StoreItem
         {
-            Id = "2",
+            Id = 2,
             Name = "Meow Master Cat Food",
             Price = 19.99m,
             Description = "All natural cat food made with exclusive fish and vegetables.",
@@ -40,7 +40,7 @@ public static class Seed
         },
         new StoreItem
         {
-            Id = "3",
+            Id = 3,
             Name = "Cities Cat Tower",
             Price = 74.99m,
             Description = "A cat tower that is perfect for any cat to play and sleep on.",
@@ -51,7 +51,7 @@ public static class Seed
         },
         new StoreItem
         {
-            Id = "4",
+            Id = 4,
             Name = "Mr Mouse Cat Toy",
             Price = 9.99m,
             Description = "Realistic mouse toy that will keep your cat entertained for hours.",
@@ -62,7 +62,7 @@ public static class Seed
         },
         new StoreItem
         {
-            Id = "5",
+            Id = 5,
             Name = "Bluz Dog Toy",
             Price = 14.99m,
             Description = "A chew toy that is perfect for any dog to play and chew on.",
@@ -73,7 +73,7 @@ public static class Seed
         },
         new StoreItem
         {
-            Id = "6",
+            Id = 6,
             Name = "Sam's Natural Dog Food",
             Price = 24.99m,
             Description = "Made with real chicken and vegetables, this dog food is perfect for any dog.",
@@ -84,7 +84,7 @@ public static class Seed
         },
         new StoreItem
         {
-            Id = "7",
+            Id = 7,
             Name = "Good Boy Dog Food",
             Price = 59.99m,
             Description = "All-natural dog food made with the finest chicken and vegetables.",
@@ -95,7 +95,7 @@ public static class Seed
         },
         new StoreItem
         {
-            Id = "8",
+            Id = 8,
             Name = "Right Stufz Dog Toy",
             Price = 13.99m,
             Description = "Stuffed toy that is perfect for any dog to play and chew.",
@@ -106,7 +106,7 @@ public static class Seed
         },
         new StoreItem
         {
-            Id = "9",
+            Id = 9,
             Name = "Deep Sea Fish Tank",
             Price = 129.99m,
             Description = "50-gallon fish tank that is perfect for any fish to swim in.",
@@ -117,7 +117,7 @@ public static class Seed
         },
         new StoreItem
         {
-            Id = "10",
+            Id = 10,
             Name = "Ballz Hamster Toy",
             Price = 19.99m,
             Description = "A ball that is perfect for any hamster to play and run in.",
@@ -128,7 +128,7 @@ public static class Seed
         },
         new StoreItem
         {
-            Id = "11",
+            Id = 11,
             Name = "Munchie Hamster Food",
             Price = 19.99m,
             Description = "All natural hamster food made with the finest seeds and nuts.",

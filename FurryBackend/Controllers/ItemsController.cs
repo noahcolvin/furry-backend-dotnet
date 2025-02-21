@@ -28,7 +28,7 @@ namespace FurryBackend.Controllers
             if (!string.IsNullOrEmpty(search))
             {
                 var lowerSearch = search.ToLowerInvariant();
-                query = query.Where(item => item.Name.Contains(lowerSearch, StringComparison.InvariantCultureIgnoreCase) || item.Description.Contains(lowerSearch, StringComparison.InvariantCultureIgnoreCase));
+                query = query.Where(item => item.Name.ToLower().Contains(lowerSearch) || item.Description.ToLower().Contains(lowerSearch));
             }
 
             var items = await query.ToListAsync();
