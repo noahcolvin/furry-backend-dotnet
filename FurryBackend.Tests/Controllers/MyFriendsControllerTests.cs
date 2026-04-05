@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using FurryBackend.Controllers;
 using FurryBackend.Models;
+using FurryBackend.Services;
 using FluentAssertions;
 using FurryBackend.Tests.Fixtures;
 
@@ -9,7 +10,7 @@ namespace FurryBackend.Tests.Controllers
   public class MyFriendsControllerTests(DatabaseFixture fixture) : IClassFixture<DatabaseFixture>
   {
     private DatabaseFixture _fixture = fixture;
-    private MyFriendsController _controller = new MyFriendsController(fixture.Db);
+    private MyFriendsController _controller = new MyFriendsController(new MyFriendsService(fixture.Db));
 
     [Fact]
     public async Task GetMyFriends_ReturnsRandomSubsetOfFriends()

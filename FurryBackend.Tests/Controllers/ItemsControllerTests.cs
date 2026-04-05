@@ -1,6 +1,7 @@
 using FluentAssertions;
 using FurryBackend.Controllers;
 using FurryBackend.Models;
+using FurryBackend.Services;
 using FurryBackend.Tests.Fixtures;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,7 +10,7 @@ namespace FurryBackend.Tests.Controllers;
 public class ItemsControllerTests(DatabaseFixture fixture) : IClassFixture<DatabaseFixture>
 {
   private DatabaseFixture _fixture = fixture;
-  private ItemsController _controller = new ItemsController(fixture.Db);
+  private ItemsController _controller = new ItemsController(new ItemsService(fixture.Db));
 
   [Fact]
   public async Task GetStoreItems_ReturnsAllItems()

@@ -1,16 +1,22 @@
 using Microsoft.EntityFrameworkCore;
 using FurryBackend.Models;
+using FurryBackend.Services;
+using FurryBackend.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Configuration.AddEnvironmentVariables();
+
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
-builder.Services.AddTransient<Config>();
+builder.Services.AddSingleton<Config>();
 builder.Services.AddDbContext<FurryBackendContext>(options =>
-    options.UseNpgsql(@"Host=localhost;Username=furry;Password=furrypass;Database=furrydb"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<IItemsService, ItemsService>();
+builder.Services.AddScoped<IMyFriendsService, MyFriendsService>();
+builder.Services.AddScoped<IMyFavoritesService, MyFavoritesService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Configuration.AddEnvironmentVariables();
 
 var app = builder.Build();
 
@@ -27,7 +33,9 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-using var scope = app.Services.CreateScope();
-scope.ServiceProvider.GetRequiredService<FurryBackendContext>().Database.EnsureCreated();
+using (var scope = app.Services.CreateScope())
+{
+    scope.ServiceProvider.GetRequiredService<FurryBackendContext>().Database.EnsureCreated();
+}
 
 app.Run();

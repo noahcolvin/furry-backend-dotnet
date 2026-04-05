@@ -1,37 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using FurryBackend.Models;
+using FurryBackend.Services.Interfaces;
 
 namespace FurryBackend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ItemsController(FurryBackendContext context) : ControllerBase
+    public class ItemsController(IItemsService itemsService) : ControllerBase
     {
-        private readonly FurryBackendContext _context = context;
-
         [HttpGet]
         public async Task<ActionResult<IEnumerable<StoreItem>>> GetStoreItems([FromQuery] string? animal = null, [FromQuery] string? product = null, [FromQuery] string? search = null)
         {
-            var query = _context.StoreItems.AsQueryable();
-
-            if (!string.IsNullOrEmpty(animal))
-            {
-                query = query.Where(item => item.Categories.Contains(animal.ToLowerInvariant()));
-            }
-
-            if (!string.IsNullOrEmpty(product))
-            {
-                query = query.Where(item => item.Categories.Contains(product.ToLowerInvariant()));
-            }
-
-            if (!string.IsNullOrEmpty(search))
-            {
-                var lowerSearch = search.ToLowerInvariant();
-                query = query.Where(item => item.Name.ToLower().Contains(lowerSearch) || item.Description.ToLower().Contains(lowerSearch));
-            }
-
-            var items = await query.ToListAsync();
+            var items = await itemsService.GetStoreItems(animal, product, search);
             return Ok(items);
         }
     }

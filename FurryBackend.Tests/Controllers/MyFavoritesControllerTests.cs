@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using FurryBackend.Controllers;
 using FurryBackend.Models;
+using FurryBackend.Services;
 using FluentAssertions;
 using FurryBackend.Tests.Fixtures;
 
@@ -9,7 +10,7 @@ namespace FurryBackend.Tests.Controllers
   public class MyFavoritesControllerTests(DatabaseFixture fixture) : IClassFixture<DatabaseFixture>
   {
     private DatabaseFixture _fixture = fixture;
-    private MyFavoritesController _controller = new MyFavoritesController(fixture.Db);
+    private MyFavoritesController _controller = new MyFavoritesController(new MyFavoritesService(fixture.Db));
 
     [Fact]
     public async Task GetMyFavoriteItems_ReturnsRandomSubsetOfStoreItems()
