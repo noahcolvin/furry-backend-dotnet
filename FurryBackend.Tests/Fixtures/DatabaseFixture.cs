@@ -7,10 +7,10 @@ public class DatabaseFixture : IDisposable
 {
     public List<StoreItem> StoreItems { get; private set; } = new List<StoreItem>
     {
-        new() { Id = "1", Name = "Item1", Description = "Description1", Price = 1.99m, Image = "https://example.com/image1.jpg", Categories = new List<string> { "category1", "category2", "dog" }, About = new List<string> { "About1", "About2" }, Rating = 4.5 },
-        new() { Id = "2", Name = "Item2", Description = "Description2 here", Price = 2.99m, Image = "https://example.com/image2.jpg", Categories = new List<string> { "category2", "category3", "food", "dog" }, About = new List<string> { "About1", "About2" }, Rating = 3.5 },
-        new() { Id = "3", Name = "Item3", Description = "Description3", Price = 3.99m, Image = "https://example.com/image3.jpg", Categories = new List<string> { "category3", "category4" }, About = new List<string> { "About1", "About2" }, Rating = 3.5 },
-        new() { Id = "4", Name = "Item4 here", Description = "Description4", Price = 4.99m, Image = "https://example.com/image4.jpg", Categories = new List<string> { "category4", "category5" }, About = new List<string> { "About1", "About2" }, Rating = 4 }
+        new() { Id = 1, Name = "Item1", Description = "Description1", Price = 1.99m, Image = "https://example.com/image1.jpg", Categories = new List<string> { "category1", "category2", "dog" }, About = new List<string> { "About1", "About2" }, Rating = 4.5 },
+        new() { Id = 2, Name = "Item2", Description = "Description2 here", Price = 2.99m, Image = "https://example.com/image2.jpg", Categories = new List<string> { "category2", "category3", "food", "dog" }, About = new List<string> { "About1", "About2" }, Rating = 3.5 },
+        new() { Id = 3, Name = "Item3", Description = "Description3", Price = 3.99m, Image = "https://example.com/image3.jpg", Categories = new List<string> { "category3", "category4" }, About = new List<string> { "About1", "About2" }, Rating = 3.5 },
+        new() { Id = 4, Name = "Item4 here", Description = "Description4", Price = 4.99m, Image = "https://example.com/image4.jpg", Categories = new List<string> { "category4", "category5" }, About = new List<string> { "About1", "About2" }, Rating = 4 }
     };
 
     public List<MyFriend> MyFriends { get; private set; } = new List<MyFriend>
